@@ -152,7 +152,7 @@ main {
 .container .profile-data .repositories .about ul li{
   display: flex;
   text-align: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .container .profile-data .events h2{
