@@ -132,6 +132,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 6px;
 }
 
 .container .profile-data .repositories ul li a{
@@ -146,6 +147,12 @@ main {
 .container .profile-data .repositories ul li a:hover{
   background-color:hotpink;
   color: #fff
+}
+
+.container .profile-data .repositories .about ul li{
+  display: flex;
+  text-align: center;
+  gap: 10px;
 }
 
 .container .profile-data .events h2{

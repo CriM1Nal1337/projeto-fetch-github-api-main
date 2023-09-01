@@ -6,14 +6,24 @@ const screen = {
                 <div class="data">
                     <h1>${user.name ?? 'Não possui nome cadastrado 😥'}</h1>
                     <p>${user.bio ?? 'Não possui bio cadastrada 😥'}</p>
-                    <p>Seguidores (${user.followers ?? 'Não encontrado/Não tem seguidores'})</p>
-                    <p>Seguindo (${user.following ?? 'Não encontrado/Não segue ninguém'})</p>
+                    <br>
+                    <p><i class="fas fa-users"></i> Seguidores: (${user.followers ?? 'Não encontrado/Não tem seguidores'}) Seguindo: (${user.following ?? 'Não encontrado/Não segue ninguém'})</p>
                 </div>
             </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a> </li>`)
-
+        user.repositories.forEach(repo => repositoriesItens += `<li>
+        <div class="about">
+            <ul>
+                <li><i class="fas fa-utensils"></i> ${repo.forks}</li>
+                <li><i class="fas fa-star fa-spin"  style="color: #faf200;"></i> ${repo.stargazers_count
+                }</li>
+                <li><i class="fas fa-eye"></i> ${repo.watchers}</li>
+                <li><i class="fas fa-laptop-code"></i> ${repo.language}</li>
+            </ul>
+        </div>
+        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+    </li>`)
         if (user.repositories.length > 0) {
             this.userProfile.innerHTML += `<div class="repositories section">
             <h2>Repositórios</h2><ul>${repositoriesItens}</ul></div>`
