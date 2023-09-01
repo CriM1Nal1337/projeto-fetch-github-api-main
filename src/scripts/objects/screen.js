@@ -18,8 +18,25 @@ const screen = {
             this.userProfile.innerHTML += `<div class="repositories section">
             <h2>Repositórios</h2><ul>${repositoriesItens}</ul></div>`
         }
+        console.log(user);
+        let eventsItens = ''
+        user.events.forEach(e => {
+            const repoName = e.repo.name
+            const eventMessage = e.payload.commits && e.payload.commits.length > 0 ? e.payload.commits[0].message : 'Repositorio criado/Commit inicial'
+
+            eventsItens += `<li><span>${repoName}</span> - ${eventMessage}</li>`
+        });
+
+        if (user.events.length > 0) {
+            this.userProfile.innerHTML += `<div class="events">
+                                            <h2>Eventos</h2>
+                                            <ul>${eventsItens}</ul>
+                                        </div>`
+        }
+
+
     },
-    renderNotFound(){
+    renderNotFound() {
         this.userProfile.innerHTML = "<h3>Usuário não encontrado</h3>"
     }
 }
