@@ -15,11 +15,11 @@ const screen = {
         user.repositories.forEach(repo => repositoriesItens += `<li>
         <div class="about">
             <ul>
-                <li><i class="fas fa-utensils"></i> ${repo.forks}</li>
-                <li><i class="fas fa-star fa-spin"  style="color: #faf200;"></i> ${repo.stargazers_count
+                <li><i class="fas fa-utensils"></i> ${repo.forks ?? 'Não há forks'}</li>
+                <li><i class="fas fa-star fa-spin"  style="color: #faf200;"></i> ${repo.stargazers_count ?? 'Não há stars'
                 }</li>
-                <li><i class="fas fa-eye"></i> ${repo.watchers}</li>
-                <li><i class="fas fa-laptop-code"></i> ${repo.language}</li>
+                <li><i class="fas fa-eye"></i> ${repo.watchers ?? 'Não contém "watchers"'}</li>
+                <li><i class="fas fa-laptop-code"></i> ${repo.language ?? 'Não há Linguagem'}</li>
             </ul>
         </div>
         <a href="${repo.html_url}" target="_blank">${repo.name}</a>
